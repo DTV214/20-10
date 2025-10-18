@@ -1,47 +1,192 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>💌 Chúc Mừng 20/10 – Dành cho Pé Dâu 🍓</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💌 Chúc Mừng 20/10 – Dành cho Pé Dâu 🍓</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body class="bg-gradient-to-br from-pink-100 via-rose-50 to-white flex justify-center items-center h-screen overflow-hidden">
-
-  <div id="gift-scene" class="relative flex justify-center items-center">
-    <!-- Vầng sáng -->
-    <div class="glow"></div>
-
-    <!-- Hộp quà -->
-    <div class="gift-box">
-      <div class="lid"></div>
-      <div class="ribbon-vertical"></div>
-      <div class="ribbon-horizontal"></div>
+  <body
+    class="bg-gradient-to-br from-pink-100 via-rose-50 to-white flex justify-center items-center h-screen overflow-hidden"
+  >
+    <div
+      id="loader"
+      class="relative flex flex-col justify-center items-center z-30"
+    >
+      <div class="heart-beat">💖</div>
+      <p class="text-rose-400 mt-4 text-lg">Đang tải tình yêu của Xoài...</p>
     </div>
 
-    <!-- Phong bì -->
-    <div class="envelope hidden opacity-0 absolute flex flex-col justify-center items-center">
-      <div class="envelope-body">
-        <div class="flap"></div>
+    <div
+      id="password-gate"
+      class="relative flex-col justify-center items-center z-20 hidden tilt-effect"
+    >
+      <h2
+        class="text-3xl font-bold text-pink-500"
+        style="font-family: 'Dancing Script', cursive"
+      >
+        Một món quà nhỏ...
+      </h2>
+      <p class="text-rose-400 mt-2 mb-4">...dành cho người đặc biệt nhất!</p>
+      <input
+        type="password"
+        id="password-input"
+        placeholder="Nhập mật khẩu tình yêu..."
+        class="text-center p-2 rounded-lg border-2 border-pink-200 focus:border-pink-400 focus:ring-0 outline-none shadow-sm"
+      />
+      <button
+        id="password-button"
+        class="mt-4 px-6 py-2 bg-pink-500 text-white font-bold rounded-lg shadow-lg transform transition-transform hover:scale-105"
+      >
+        Mở quà
+      </button>
+    </div>
+
+    <div
+      id="main-scene"
+      class="relative justify-center items-center w-full max-w-2xl hidden opacity-0"
+    >
+      <div class="glow"></div>
+
+      <div class="gift-box tilt-effect">
+        <div class="lid"></div>
+        <div class="ribbon-vertical"></div>
+        <div class="ribbon-horizontal"></div>
       </div>
-      <p class="mt-2 text-pink-500 font-medium text-sm animate-pulse">💌 Bấm để mở thư 💌</p>
+
+      <div id="envelope-scene" class="hidden opacity-0 w-full">
+        <div class="flex flex-wrap justify-center items-center gap-6 p-4">
+          <div class="envelope-wrapper tilt-effect">
+            <div class="envelope">
+              <div class="envelope-body"><div class="flap"></div></div>
+              <p class="click-me-text">Mở thư 1 💌</p>
+            </div>
+            <div class="letter-content letter-image hidden">
+              <img
+                src="https://res.cloudinary.com/dratbz8bh/image/upload/v1760808651/Dau1_tpseyk.jpg"
+                alt="Kỷ niệm 1"
+              />
+              <p class="image-caption">
+                Nhìn Pé hôm đó, Xoài biết Pé đã vất vả nhiều. Giỏi lắm, thương
+                Pé. 💖
+              </p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper tilt-effect">
+            <div class="envelope">
+              <div class="envelope-body"><div class="flap"></div></div>
+              <p class="click-me-text">Mở thư 2 💌</p>
+            </div>
+            <div class="letter-content letter-image hidden">
+              <img
+                src="https://res.cloudinary.com/dratbz8bh/image/upload/v1760809446/Dau5_vh9amh.jpg"
+                alt="Kỷ niệm 2"
+              />
+              <p class="image-caption">
+                Ý diễn viên nổi tiếng nè kkkkkk 🥰
+              </p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper tilt-effect">
+            <div class="envelope">
+              <div class="envelope-body"><div class="flap"></div></div>
+              <p class="click-me-text">Mở thư 3 💌</p>
+            </div>
+            <div class="letter-content letter-image hidden">
+              <img
+                src="https://res.cloudinary.com/dratbz8bh/image/upload/v1760808652/Dau2_mfjjs8.jpg"
+                alt="Kỷ niệm 3"
+              />
+              <p class="image-caption">
+                Thêm một khoảnh khắc đáng yêu của Pé! Nằm võng đung đưa đồ kkkk
+                🥰
+              </p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper tilt-effect">
+            <div class="envelope">
+              <div class="envelope-body"><div class="flap"></div></div>
+              <p class="click-me-text">Mở thư 4 💌</p>
+            </div>
+            <div class="letter-content letter-image hidden">
+              <img
+                src="https://res.cloudinary.com/dratbz8bh/image/upload/v1760808652/Dau3_qkep3h.jpg"
+                alt="Kỷ niệm 4"
+              />
+              <p class="image-caption">
+                Sau một ngày mệt mỏi thì đã tiếp sức nạp năng lượng tại quán ăn
+                ở biên hòa. Trông cute vãi òoooo ✨
+              </p>
+            </div>
+          </div>
+
+          <div class="envelope-wrapper tilt-effect">
+            <div class="envelope">
+              <div class="envelope-body"><div class="flap"></div></div>
+              <p class="click-me-text">Thư cuối nè! 💖</p>
+            </div>
+            <div class="letter-content letter-wish hidden">
+              <h2 class="text-pink-600 font-semibold text-lg mb-3">
+                Gửi Pé Dâu của Xoài 🍓
+              </h2>
+              <p class="text-rose-500 leading-relaxed">
+                Vậy là Pé đã mở hết các lá thư nhỏ rồi!<br />
+                Nhân ngày 20/10 đặc biệt này, Xoài muốn gửi đến Pé không chỉ là
+                những lời chúc, mà còn là cả tấm lòng của Xoài.
+                <br /><br />
+                Chúc Pé Dâu của Xoài một ngày thật rực rỡ, luôn giữ mãi nụ cười
+                ngọt ngào như trái dâu chín mọng, và tâm hồn luôn tươi tắn như
+                đóa hoa hướng dương luôn hướng về phía mặt trời. 🌸
+                <br /><br />
+                Mong rằng mỗi ngày của Pé đều là một ngày hạnh phúc, bình yên và
+                tràn ngập yêu thương. Dù có bất cứ điều gì xảy ra, hãy nhớ rằng
+                luôn có "A Xoài" ở đây, sẵn sàng là bờ vai và là người lắng nghe
+                Pé mỗi ngày.
+                <br /><br />
+                Thương Pé nhiều lắm! 💖<br />
+                Mãi keo, baeee!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="final-scene" class="hidden opacity-0 absolute z-20 text-center">
+        <h1
+          id="final-title"
+          class="text-5xl font-bold text-pink-500"
+          style="font-family: 'Dancing Script', cursive"
+        ></h1>
+        <p id="final-subtitle" class="text-rose-500 text-xl mt-4"></p>
+        <!-- <img
+          src="https://i.pinimg.com/originals/30/90/f0/3090f033d867c23403b3064098616198.gif"
+          alt="Cute gif"
+          class="mt-4"
+        /> -->
+        <iframe
+          src="https://giphy.com/embed/Yle9Yz9izeVRyiwavn"
+          width="480"
+          height="480"
+          style=""
+          frameborder="0"
+          class="giphy-embed"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
 
-    <!-- Lá thư -->
-    <div class="letter hidden opacity-0 absolute bg-white rounded-2xl shadow-2xl p-6 text-center border border-rose-200 max-w-xs">
-      <h2 class="text-pink-600 font-semibold text-lg mb-3">Gửi đến Pé Dâu 🍓</h2>
-      <p class="text-rose-500 leading-relaxed">
-        Nhân ngày 20/10,<br>
-        Xoài chúc Pé luôn tươi tắn như đóa hoa hồng 🌸,<br>
-        ngọt ngào như trái dâu 🍓,<br>
-        và hạnh phúc như chính nụ cười của Pé 💖<br>
-        Thương Pé nhiều lắm 😘
-      </p>
-    </div>
-  </div>
+    <audio
+      id="background-music"
+      src="https://pixabay.com/vi/music/nh%E1%BB%8Bp-%C4%91%E1%BA%ADp-rose-227246/.mp3"
+      loop
+    ></audio>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
